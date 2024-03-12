@@ -35,4 +35,4 @@ CO2 %>%
     ggplot(aes(conc, uptake,
                 color = Treatment))+
                 geom_point(size = 3, alpha = 0.5)+
-                geom_smooth()
+                geom_smooth(method = lm, se = F)
