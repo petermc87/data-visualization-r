@@ -20,19 +20,22 @@ data()
 #                       geom_line(colour = "red") # Displaying a line and specifying the colour.
 
 # --- ggplot example 2 (from example datasets) ---
-ggplot(BOD, aes(Time, demand))+ # ggplot assumes the BOD ref is for the dataframe. It will also assume
-# the first aes parameter is x and the second is y.
-    geom_point(size = 3)+
-    geom_line(color = "red")
-
-
+ggplot(BOD, aes(Time, demand)) + # ggplot assumes the BOD ref is for the
+  # dataframe. It will also assume the first aes parameter is x and
+  # the second is y.
+  geom_point(size = 3) +
+  geom_line(color = "red")
 View(CO2)
 
 
 # --- ggplot example 3 -> using tidyverse ---
-
 CO2 %>%
-    ggplot(aes(conc, uptake,
-                color = Treatment))+
-                geom_point(size = 3, alpha = 0.5)+
-                geom_smooth(method = lm, se = F)
+  ggplot(aes(conc, uptake,
+             color = Treatment)) +
+  geom_point(size = 3, alpha = 0.5) +
+  geom_smooth(method = lm, se = TRUE) + # Smoothung method and confidence off.
+  facet_wrap(~Type) +
+  labs(title = "Concentration of CO2") +
+  theme_bw()
+
+# --- ggplot example 4 -> creating a boxplot ---#
