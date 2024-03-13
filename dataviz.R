@@ -28,7 +28,7 @@ ggplot(BOD, aes(Time, demand)) + # ggplot assumes the BOD ref is for the
 View(CO2)
 
 
-# --- ggplot example 3 -> using tidyverse ---
+# --- ggplot example 3 -> using tidyverse scatter plot ---
 CO2 %>%
   ggplot(aes(conc, uptake,
              color = Treatment)) +
@@ -39,3 +39,13 @@ CO2 %>%
   theme_bw()
 
 # --- ggplot example 4 -> creating a boxplot ---#
+CO2 %>%
+  ggplot(aes(Treatment, uptake)) +
+  geom_boxplot() +
+  geom_point(alpha = 0.5, aes(size = conc, color = Plant)) + # this is mapping
+  # the size of each data point based on the concentration.
+  # also, each plant will have a color.
+  acet_wrap(~Type) +
+  coord_flip() + # Flips the plot on its side
+  theme_bw() + # Theme of the plot frame.
+  labs(title = "Chilled vs Non Chilled")
