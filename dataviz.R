@@ -54,8 +54,15 @@ CO2 %>%
 
 View(mpg)
 # --- ggplot example 5 -> scatter plot for mpg data ---#
+class(mpg) # Checking the class type, which is <data.frame>
+str(mpg) # Another way to check data type
+
+colnames(mpg) # Checking the name of the columns
+
+sum(is.na(mpg$cty))
+
 mpg %>% # Pipe operator for mpg data.
-  filter(cty < 25) %>% # Using pipe again to filter outliers.
+  # filter(mpg$cty < 25) %>% # Using pipe again to filter outliers.
   ggplot(aes(displ, cty)) +
   geom_point(aes(colour = drv, size = trans),
              alpha = 0.5) +
