@@ -1,7 +1,6 @@
 library(ggplot2)
 library(tidyr)
 
-
 #  Tests
 print("hello world")
 y <- c(1, 2, 3)
@@ -62,11 +61,20 @@ colnames(mpg) # Checking the name of the columns
 sum(is.na(mpg$cty))
 
 mpg %>% # Pipe operator for mpg data.
-  # filter(mpg$cty < 25) %>% # Using pipe again to filter outliers.
+  # filter(mpg$cty < 25) %>% # Using pipe again to filter outliers. NOT WORKING!
   ggplot(aes(displ, cty)) +
   geom_point(aes(colour = drv, size = trans),
              alpha = 0.5) +
   geom_smooth(method = lm) +
-  facet_wrap(~year, nrow = 1)
+  facet_wrap(~year, nrow = 1) +
+  labs(x = "Engine size",
+    y = "MPG in the city",
+    title = "Fuel efficiency"
+  )
 # The colour gets
 # mapped to the drive and the size is dependent on the transmission.
+
+### TEST FILTER NOT FUNCTIONING ###
+filtered_mpg <- mpg %>%
+  filter(cty < 25) %>%
+  ggplot(filtered_mpg, aes(displ, cty))
