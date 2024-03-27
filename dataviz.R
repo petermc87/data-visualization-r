@@ -58,7 +58,8 @@ str(mpg) # Another way to check data type
 
 colnames(mpg) # Checking the name of the columns
 
-sum(is.na(mpg$cty))
+sum(is.na(mpg$cty)) # Checking if there are any NA values
+# in the column. [1]0 means there are none.
 
 mpg %>% # Pipe operator for mpg data.
   # filter(mpg$cty < 25) %>% # Using pipe again to filter outliers. NOT WORKING!
