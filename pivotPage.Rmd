@@ -25,3 +25,6 @@ library(rpivotTable)
 
 # Call the function to pass in the dataframe.
 rpivotTable(empdemo)
+
+# NOTE: Pandoc needed to be installed. This is a file converter to create a html
+
