@@ -25,3 +25,9 @@ library(rpivotTable)
 
 # Call the function to pass in the dataframe.
 rpivotTable(empdemo)
+
+# Preset rows and cols
+rpivotTable(empdemo, rows = "JobLevel", cols = "Sex")
+
+# Preset chart type
+rpivotTable(empdemo, rows = "JobLevel", cols = "Sex", rendererName = "Heatmap")
