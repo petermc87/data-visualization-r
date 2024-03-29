@@ -31,3 +31,5 @@ rpivotTable(empdemo, rows = "JobLevel", cols = "Sex")
 
 # Preset chart type
 rpivotTable(empdemo, rows = "JobLevel", cols = "Sex", rendererName = "Heatmap")
+
+# ?rpivotTable <--- run this for full run down of this method.
